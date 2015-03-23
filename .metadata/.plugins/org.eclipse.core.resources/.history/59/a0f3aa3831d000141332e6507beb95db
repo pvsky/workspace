@@ -1,0 +1,39 @@
+import java.util.Map;
+import java.util.TreeMap;
+
+public class FreqTable{
+	public FreqTable(){ }
+	
+	public Map<Double, Character> getTable(){
+		Map<Double, Character> table = new TreeMap<Double, Character>();
+		//TODO
+		table.put( 0.0, 'A');
+		table.put( 0.0, 'B');
+		table.put( 0.0, 'C');
+		table.put( 0.0, 'D');
+		table.put( 0.0, 'E');
+		table.put( 0.0, 'F');
+		table.put( 0.0, 'G');
+		table.put( 0.0, 'H');
+		table.put( 0.0, 'I');
+		table.put( 0.0, 'J');
+		table.put( 0.0, 'K');
+		table.put( 0.0, 'L');
+		table.put( 0.0, 'M');
+		table.put( 0.0, 'N');
+		table.put( 0.0, 'O');
+		table.put( 0.0, 'P');
+		table.put( 0.0, 'Q');
+		table.put( 0.0, 'R');
+		table.put( 0.0, 'S');
+		table.put( 0.0, 'T');
+		table.put( 0.0, 'U');
+		table.put( 0.0, 'V');
+		table.put( 0.0, 'W');
+		table.put( 0.0, 'X');
+		table.put( 0.0, 'Y');
+		table.put( 0.0, 'Z');
+		
+		return table;
+	}
+}

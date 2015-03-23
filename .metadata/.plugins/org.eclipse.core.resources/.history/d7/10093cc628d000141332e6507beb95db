@@ -1,0 +1,13 @@
+import java.util.Map;
+import java.util.TreeMap;
+
+public class FreqTable{
+	public FreqTable(){ }
+	
+	public Map<Float, Characte> getTable(){
+		Map<Float, Character> table = new TreeMap<Float, Characte>();
+		//TODO
+		
+		return table;
+	}
+}

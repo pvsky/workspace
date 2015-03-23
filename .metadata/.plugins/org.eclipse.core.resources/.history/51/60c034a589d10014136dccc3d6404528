@@ -1,0 +1,13 @@
+public class Kasisky{
+	private String input;
+	
+	private Kasisky(String input){
+		this.input = input;
+	}
+	
+	private int findRepeat(int lenght){
+		int distance;
+		
+		return distance;
+	}
+}

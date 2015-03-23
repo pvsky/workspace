@@ -1,0 +1,5 @@
+public class Vigener{
+	private Kasinsky kas;
+	private Friedman fried;
+	
+}
