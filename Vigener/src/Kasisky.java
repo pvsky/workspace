@@ -8,6 +8,7 @@ public class Kasisky{
 	private Map<String, Integer> words;
 	private Map<String, Set<Integer>> positions;
 	private Set<String> repeats;
+
 	
 	private Kasisky(String input){
 		this.input = input;
@@ -41,5 +42,22 @@ public class Kasisky{
 			}
 			position++;
 		}
+	}
+	
+	private void getLengths(){
+		Set<Integer> lengths = new HashSet<Integer>();
+		
+		for(String s : repeats){
+			int prev = 0;
+			for(Integer p : positions.get(s)){
+				if(prev != 0) lengths.add(p-prev);
+			}
+		}
+		
+		getDivisors(lengths);
+	}
+	
+	private void getDivisors(Set<Integer> lengths){
+		//TODO
 	}
 }
