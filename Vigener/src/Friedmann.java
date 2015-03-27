@@ -6,8 +6,9 @@ import java.util.TreeMap;
 public class Friedmann{
 	private Set<Integer> divisors;
 	private String input;
-	private int bestKey;
+	private int bestKey = 0;
 	private double bestIndex;
+	private double bestDiff;
 	
 	public Friedmann(Set<Integer> divisors, String input){
 		this.divisors = divisors;
@@ -19,6 +20,7 @@ public class Friedmann{
 	
 	private void getKey(){
 		splitToBlocks();
+		System.out.println("Best index of: " + bestIndex + " has a key of length:" + bestKey);
 	}
 	
 	private String removeWhiteSpace(){
@@ -29,6 +31,7 @@ public class Friedmann{
 					c == ')' || c == '-'){ }
 			else newInput += c;
 		}
+		System.out.println(newInput);
 		return newInput;
 	}
 	
@@ -45,14 +48,19 @@ public class Friedmann{
 				blocks.add(block);
 			}
 			//TODO count index for block
-			countIndex(blocks);
+			double index = countIndex(blocks);
+			replaceIndex(index, k);
 		}
 	}
 	
-	private void countIndex(Set<String> blocks){
+	private double countIndex(Set<String> blocks){
+		double index;
+		Set<Double> indexes = new HashSet<Double>();
+		
 		for(String b : blocks){
+			index = 0.0;
 			Map<Character, Integer> freq = new TreeMap<Character, Integer>();
-			Set<Character>characters = new HashSet<Character>();
+			Set<Character> characters = new HashSet<Character>();
 			int chars = 0;
 			
 			for(int i = 0; i < b.length(); i++){
@@ -64,12 +72,32 @@ public class Friedmann{
 					chars++;
 			}
 			//TODO have char count, do rest
+			for(Character c : characters){
+				index += (double)freq.get(c)/(double)b.length();
+			}
+			indexes.add(index);
 		}
 		
-		
+		index = 0.0;
+		for(Double i : indexes){
+			index += i;
+		}
+		index /= (double)blocks.size();
+		return index;
 	}
 	
-	private void countSymbols(){
-		
+	private void replaceIndex(double curI, int k){
+		if(bestKey == 0){
+			bestKey = k;
+			bestIndex = curI;
+			bestDiff = (curI > 0.06689 )? curI-0.06689 : 0.06689 - curI;
+		}else{
+			double curDiff = (curI > 0.06689 )? curI-0.06689 : 0.06689 - curI;
+			if(curDiff < bestDiff){
+				bestKey = k;
+				bestIndex = curI;
+				bestDiff = curDiff;
+			}
+		}
 	}
 }
