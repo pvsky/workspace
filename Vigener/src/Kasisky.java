@@ -105,4 +105,8 @@ public class Kasisky{
 		}
 		System.out.println();
 	}
+	
+	public Set<Integer> getDivisors(){
+		return divisors;
+	}
 }
