@@ -1,5 +1,7 @@
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 public class Friedmann{
 	private Set<Integer> divisors;
@@ -48,6 +50,22 @@ public class Friedmann{
 	}
 	
 	private void countIndex(Set<String> blocks){
+		for(String b : blocks){
+			Map<Character, Integer> freq = new TreeMap<Character, Integer>();
+			Set<Character>characters = new HashSet<Character>();
+			int chars = 0;
+			
+			for(int i = 0; i < b.length(); i++){
+					if(!freq.containsKey(b.charAt(i))) {
+						characters.add(b.charAt(i));
+						freq.put(b.charAt(i), 1);
+					}
+					else freq.put(b.charAt(i), freq.get(b.charAt(i))+1);
+					chars++;
+			}
+			//TODO have char count, do rest
+		}
+		
 		
 	}
 	
